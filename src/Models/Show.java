@@ -1,10 +1,15 @@
 package Models;
+
+import java.util.List;
+import java.util.ArrayList;
 public class Show {
     private String Title;         // The title of the show
     private int RunTime;          // The run time of the show in minutes
     private String StartDate;     // The date that the show starts
     private String EndDate;       // The date that the show ends
     private float TicketPrice;    // Prices for circle, stall and balcony seats
+
+    private List<Performance> performances;    // A list of performances for each show
 
 
     public Show(String Title, int RunTime, float TicketPrice, String StartDate, String EndDate) {
@@ -13,6 +18,7 @@ public class Show {
         this.TicketPrice = TicketPrice;        // Constructor to create a show with the start and end date, run time, title and ticket prices for the stall, circle and balcony seats
         this.StartDate = StartDate;
         this.EndDate = EndDate;
+        this.performances = new ArrayList<> ();
     }
 
 
@@ -52,7 +58,20 @@ public class Show {
         return TicketPrice;                                // Gets the ticket prices of the stall, circle and balcony seats
     }
 
+    public List<Performance> getPerformances() {
+        return performances;
+    }
+
     public void setTicketPrice(float ticketPrice) {        // Sets the ticket prices of the stall, circle and balcony seats
         TicketPrice = ticketPrice;
     }
+
+    public void setPerformances(List<Performance> performances) {
+        this.performances = performances;
+    }
+
+public void addPerformance(Performance performance) {performances.add(performance);}
+
+public void removePerformance (Performance performance) {performances.add(performance);}
+
 }

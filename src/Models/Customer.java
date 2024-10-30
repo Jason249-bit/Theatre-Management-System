@@ -1,9 +1,12 @@
 package Models;
 
+import java.util.List;
+import java.util.ArrayList;
 public class Customer {
     private int PhoneNumber;  // Customers phone number
     private String Name;      // Customers full name
     private String Email;     // Customers E-mail address
+    private List<Show> shows;   // List of shows that the customer can have booked
 
 
 
@@ -11,6 +14,7 @@ public class Customer {
         this.Name = Name;                                                   // Constructor to create a customer with their contact info and name
         this.PhoneNumber = PhoneNumber;
         this.Email = Email;
+        this.shows = new ArrayList <>();
     }
 
 
@@ -35,6 +39,18 @@ public class Customer {
     }
 
     public void setEmail(String email) {
-        Email = email;                       // Sets the E-mail of the customer
+        Email = email;                           // Sets the E-mail of the customer
     }
+
+    public List<Show> getShows() {
+        return shows;
+    }
+
+    public void setShows(List<Show> shows) {
+        this.shows = shows;
+    }
+
+    public void reomoveShow(Show show) {shows.remove(show);}
+
+    public void addShow(Show show) {shows.add(show);}
 }
